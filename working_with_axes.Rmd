@@ -3,10 +3,8 @@ title: "working_with_axes"
 author: "Elia Vangi"
 date: "02 maggio 2018"
 output:
-  word_document:
-    toc: yes
-  html_document:
-    toc: yes
+  github_document:
+    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -79,17 +77,17 @@ a <- g+expand_limits(y=0)+theme(legend.position = "none")
 b <- g+expand_limits(y=c(0,8))+theme(legend.position = "none")
 #si puo impostare anche con la funzione "ylim(0,8)"
 c <- g+ylim(0,8)+theme(legend.position = "none")
-#la funzione "scale_y_continuos" è analoga a "ylim" ma sovrascrive le impostazioni di quest'ultimo, quindi in presenza di tutte e due le funzioni prevale la prima
+#la funzione "scale_y_continuos" Ã¨ analoga a "ylim" ma sovrascrive le impostazioni di quest'ultimo, quindi in presenza di tutte e due le funzioni prevale la prima
 d <- g+ylim(0,8)+scale_y_continuous(limits = c(0,7))+theme(legend.position = "none")
 grid.arrange(a,b,c,d,ncol=2,nrow=2)
 ```
 con i metodi illustrati sopra, i valori di y che non ricadono nel range impostato vengono ignorati.
-`coord_cartesian` risolve questo problema perchè imposta le dimensione di tutta l'area di vista del grafico
+`coord_cartesian` risolve questo problema perchÃ¨ imposta le dimensione di tutta l'area di vista del grafico
 
 ```{r}
  g+ylim(2,7)#qui i dati vengono eliminati, infatti spariscono anche dalla legenda
  g+coord_cartesian(ylim = c(2,7))#qui i dati vengono conservati. la funzionepraticamente fa uno  "zoom" sull'area impostata
- g+coord_cartesian(ylim = c(2,7),xlim = c(2,3))#nota che anche se l'asse x è una variabile discreta e una stringa di testo la funzione mostra comunque la parte di grafico richiesta
+ g+coord_cartesian(ylim = c(2,7),xlim = c(2,3))#nota che anche se l'asse x Ã¨ una variabile discreta e una stringa di testo la funzione mostra comunque la parte di grafico richiesta
 ```
 
 ## Specificare l'intervallo di una variabile continua
@@ -155,7 +153,7 @@ dat <- data.frame(x=runif(40,0,10),y=runif(40,0,50))
 a <- ggplot(dat,aes(x,y))+geom_point()+theme_bw()
 a
 a+coord_fixed()#rapporto tra gli assi di defoult=1
-a+coord_fixed(ratio = 1/3)#rapporto di 1/3 cioè un'unita sull'asse y è 3 volte più piccola di quella sull'asse x
+a+coord_fixed(ratio = 1/3)#rapporto di 1/3 cioÃ¨ un'unita sull'asse y Ã¨ 3 volte piÃ¹ piccola di quella sull'asse x
 ```
 
 
