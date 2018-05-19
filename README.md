@@ -1,11 +1,12 @@
 # working_with_axes
 codice per personalizzare il formato delle assi nei grafici 
+
 ---
 title: "working_with_axes"
 author: "Elia Vangi"
 date: "02 maggio 2018"
 output:
-  github_document:
+ github_document:
     toc: TRUE
 ---
 
@@ -173,3 +174,5 @@ a+theme(axis.title.x = element_text(face = "bold",colour = 2,size = 15))
 #impostare il font, il colore e l'angolo dei valori sulle assi
 a+theme(axis.text.x = element_text(angle = 90,size = 10,colour = 2))
 ```
+
+
